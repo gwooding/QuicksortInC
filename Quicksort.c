@@ -56,11 +56,7 @@
  
         memcpy(target, numbers, count * sizeof(int));
 
-        free(numbers);
-
         if(count==2){
-        	printf("Count was 2\n");
-        	printf("%d, %d\n", target[0], target[1]);
         	if(target[0]>target[1]){
         		int temp = target[0];
         		target[0] = target[1];
@@ -70,19 +66,14 @@
         	else {
         		return target;
         	}
-        	printf("Count was 2\n");
-        	printf("%d, %d ", target[0], target[1]);
         }
         else if(count == 1){
-        	printf("Count was 1\n");
-        	printf("%d\n ", target[0]);
         	return target;
         }
         else{
         	int split = count/2;
-        	printf("split: %d ", split);
         	int* result = merge(quicksort(target, split), split, quicksort(target + split, count - split), count - split);
-        	return result;
+            return result;
         }
 
     }
